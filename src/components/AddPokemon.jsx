@@ -1,21 +1,32 @@
 import { useState } from "react";
 import axios from "axios";
+import pokeball from "../../public/pokeball.png";
 
-function AddPokemon() {
+function AddPokemon({ updateAllPokemonList }) {
   const [name, setName] = useState("");
   const [type, setType] = useState("");
+  const [spriteImg, setSpriteImg] = useState(pokeball);
   const [message, setMessage] = useState("");
+  const [showMessage, setShowMessage] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     // Send a POST request to add a new Pokémon
     axios
-      .post("/pokemon", { name, type })
+      .post("http://localhost:3001/pokemon", { name, type, spriteImg })
       .then((response) => {
         setMessage(`Added ${response.data.name} to the Pokédex!`);
         setName("");
         setType("");
+        setSpriteImg(response.data.spriteImg || pokeball);
+        updateAllPokemonList(response.data);
+        setShowMessage(true);
+        console.log(response.data);
+        // Reset the message after a delay
+        setTimeout(() => {
+          setShowMessage(false);
+        }, 3000); // Adjust the delay as needed (3000ms = 3 seconds)
       })
       .catch((error) => {
         setMessage("Error adding Pokémon");
@@ -25,9 +36,13 @@ function AddPokemon() {
   return (
     <div className="text-white flex flex-col justify-center items-center space-y-6">
       <h2 className="mt-6">Add a New Pokémon</h2>
-      <form className="text-black" onSubmit={handleSubmit}>
-        <label className="mx-6">
+      <form
+        className="text-black flex flex-col justify-center items-center sm:inline space-x-4 space-y-4"
+        onSubmit={handleSubmit}
+      >
+        <label className="ml-4">
           <input
+            className="p-1"
             type="text"
             value={name}
             placeholder="Name"
@@ -36,6 +51,7 @@ function AddPokemon() {
         </label>
         <label className="mr-4">
           <input
+            className="p-1"
             type="text"
             value={type}
             placeholder="Type"
@@ -49,7 +65,13 @@ function AddPokemon() {
           Add Pokémon
         </button>
       </form>
-      <p>{message}</p>
+      <p
+        className={`bg-green-500 p-2 ${
+          showMessage ? "opacity-100" : "opacity-0"
+        } transition-opacity duration-400`}
+      >
+        {message}
+      </p>
     </div>
   );
 }
