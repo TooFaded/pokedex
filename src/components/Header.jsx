@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <header className="bg-pokemonRed p-6">
       <nav className="container mx-auto flex justify-between items-center">
-        <Link to="/" className="text-white font-bold text-xl">
+        <Link to="/" className="text-white flex font-bold text-xl">
           My Pokédex
         </Link>
         <div className="space-x-4">

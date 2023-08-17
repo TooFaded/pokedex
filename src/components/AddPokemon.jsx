@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
-import pokeball from "../../public/pokeball.png";
+import pokeball from "../assets/pokeball.png";
+import { MdDoneOutline } from "react-icons/md";
 
 function AddPokemon({ updateAllPokemonList }) {
   const [name, setName] = useState("");
@@ -37,12 +38,12 @@ function AddPokemon({ updateAllPokemonList }) {
     <div className="text-white flex flex-col justify-center items-center space-y-6">
       <h2 className="mt-6">Add a New Pokémon</h2>
       <form
-        className="text-black flex flex-col justify-center items-center sm:inline space-x-4 space-y-4"
+        className="text-white flex flex-col justify-center items-center sm:inline space-x-4 space-y-4"
         onSubmit={handleSubmit}
       >
         <label className="ml-4">
           <input
-            className="p-1"
+            className="p-1 bg-gray-800 rounded-md"
             type="text"
             value={name}
             placeholder="Name"
@@ -51,7 +52,7 @@ function AddPokemon({ updateAllPokemonList }) {
         </label>
         <label className="mr-4">
           <input
-            className="p-1"
+            className="p-1 bg-gray-800 rounded-md"
             type="text"
             value={type}
             placeholder="Type"
@@ -66,11 +67,12 @@ function AddPokemon({ updateAllPokemonList }) {
         </button>
       </form>
       <p
-        className={`bg-green-500 p-2 ${
+        className={`bg-green-500 p-2 flex ${
           showMessage ? "opacity-100" : "opacity-0"
         } transition-opacity duration-400`}
       >
         {message}
+        <MdDoneOutline className="ml-1" />
       </p>
     </div>
   );
