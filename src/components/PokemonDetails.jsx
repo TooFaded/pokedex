@@ -30,7 +30,7 @@ function PokemonDetails() {
   return (
     <div className="flex flex-col h-screen justify-center items-center text-white">
       <Link to="/pokemon">
-        <IoMdArrowRoundBack className="text-6xl bg-pokemonRed hover:bg-red-800 absolute top-40 left-90 rounded-full cursor-pointer" />
+        <IoMdArrowRoundBack className="sm:text-6xl text-3xl bg-pokemonRed hover:bg-red-800 sm:absolute relative top-40 left-90 rounded-full cursor-pointer" />
       </Link>
 
       {pokemonDetails && (

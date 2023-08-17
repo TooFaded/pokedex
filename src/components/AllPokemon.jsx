@@ -79,9 +79,7 @@ function AllPokemon() {
               className="w-20 h-20"
             />
             <span className="p-2">{pokemon.name.toUpperCase()}</span>
-            <span className="bg-green-400 text-black p-1 px-4 mt-3 rounded-sm">
-              {pokemon.type}
-            </span>
+
             <Link className="mt-4" to={`/pokemon/${pokemon._id}`}>
               <button className="bg-pokemonRed hover:bg-red-800 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out">
                 Details
