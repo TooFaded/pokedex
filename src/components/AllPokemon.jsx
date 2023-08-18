@@ -11,7 +11,9 @@ function AllPokemon() {
   useEffect(() => {
     // Fetch all Pokémon from the API
     axios
-      .get("https://poke-dex-1370.netlify.app/.netlify/functions/pokemon")
+      .get(
+        "https://poke-dex-1370.netlify.app/.netlify/functions/pokemonFunction/pokemon"
+      )
       .then((response) => {
         setPokemonList(response.data);
       });
@@ -36,8 +38,7 @@ function AllPokemon() {
     if (pokemonToDelete && pokemonToDelete.isCreated) {
       axios
         .delete(
-          `https://poke-dex-1370.netlify.app/.netlify/functions/pokemon
-        /pokemon/${pokemonId}`
+          `https://poke-dex-1370.netlify.app/.netlify/functions/pokemonFunction/pokemon/${pokemonId}`
         )
         .then((response) => {
           // Filter out the deleted Pokémon from the list

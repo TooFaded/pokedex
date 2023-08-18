@@ -11,8 +11,7 @@ function PokemonDetails() {
   useEffect(() => {
     axios
       .get(
-        `https://poke-dex-1370.netlify.app/.netlify/functions/pokemon
-      /pokemon/${pokemonId}`
+        `https://poke-dex-1370.netlify.app/.netlify/functions/pokemonFunction/pokemon/${pokemonId}`
       )
       .then((response) => {
         // Check if the description is available, otherwise set a default
