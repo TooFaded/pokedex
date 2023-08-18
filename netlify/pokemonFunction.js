@@ -4,6 +4,7 @@ const Pokemon = require("./pokemon");
 exports.handler = async (event, context) => {
   try {
     const MONGO_URI = process.env.MONGO_URI;
+    console.log(MONGO_URI);
 
     // Establish the database connection
     await mongoose.connect(MONGO_URI, {
