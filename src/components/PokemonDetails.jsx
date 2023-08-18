@@ -10,7 +10,10 @@ function PokemonDetails() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/pokemon/${pokemonId}`)
+      .get(
+        `https://poke-dex-1370.netlify.app/.netlify/functions/pokemon
+      /pokemon/${pokemonId}`
+      )
       .then((response) => {
         // Check if the description is available, otherwise set a default
         const defaultDescription =

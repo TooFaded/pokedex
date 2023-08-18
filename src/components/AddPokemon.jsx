@@ -15,7 +15,11 @@ function AddPokemon({ updateAllPokemonList }) {
 
     // Send a POST request to add a new Pokémon
     axios
-      .post("http://localhost:3001/pokemon", { name, type, spriteImg })
+      .post("https://poke-dex-1370.netlify.app/.netlify/functions/pokemon", {
+        name,
+        type,
+        spriteImg,
+      })
       .then((response) => {
         setMessage(`Added ${response.data.name} to the Pokédex!`);
         setName("");

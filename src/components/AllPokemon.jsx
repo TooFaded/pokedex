@@ -10,9 +10,11 @@ function AllPokemon() {
 
   useEffect(() => {
     // Fetch all Pokémon from the API
-    axios.get("http://localhost:3001/pokemon").then((response) => {
-      setPokemonList(response.data);
-    });
+    axios
+      .get("https://poke-dex-1370.netlify.app/.netlify/functions/pokemon")
+      .then((response) => {
+        setPokemonList(response.data);
+      });
   }, []);
 
   const updateAllPokemonList = (newPokemon) => {
@@ -33,7 +35,10 @@ function AllPokemon() {
 
     if (pokemonToDelete && pokemonToDelete.isCreated) {
       axios
-        .delete(`http://localhost:3001/pokemon/${pokemonId}`)
+        .delete(
+          `https://poke-dex-1370.netlify.app/.netlify/functions/pokemon
+        /pokemon/${pokemonId}`
+        )
         .then((response) => {
           // Filter out the deleted Pokémon from the list
           setPokemonList((prevList) =>
