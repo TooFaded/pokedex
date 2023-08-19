@@ -1,7 +1,7 @@
-const mongoose = require("mongoose");
-const Pokemon = require("./pokemon");
+import mongoose from "mongoose";
+import Pokemon from "../netlify/pokemon.js";
 
-exports.handler = async (event, context) => {
+export const handler = async (event, context) => {
   try {
     const MONGO_URI = process.env.MONGO_URI;
     console.log(MONGO_URI);
