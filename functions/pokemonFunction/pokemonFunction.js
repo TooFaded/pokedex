@@ -3,14 +3,14 @@ const { MongoClient } = require("mongodb");
 const mongoose = require("mongoose");
 const Pokemon = require("./pokemon"); // Import the Pokemon model
 
-const mongoClient = new MongoClient(process.env.MONGODB_URI);
+const mongoClient = new MongoClient(process.env.MONGO_URI);
 
 const clientPromise = mongoClient.connect();
 
 const handler = async (event) => {
   try {
-    const database = (await clientPromise).db(process.env.MONGODB_DATABASE);
-    const collection = database.collection(process.env.MONGODB_COLLECTION);
+    const database = (await clientPromise).db("pokemon_database");
+    const collection = database.collection("pokemons");
     const path = event.path;
     const httpMethod = event.httpMethod;
     const body = JSON.parse(event.body);
