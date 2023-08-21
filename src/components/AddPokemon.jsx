@@ -15,7 +15,7 @@ function AddPokemon({ updateAllPokemonList }) {
 
     // Send a POST request to add a new Pokémon
     axios
-      .post("/.netlify/functions/pokemonFunction/pokemon", {
+      .post("/.netlify/functions/createPokemon/pokemon", {
         name,
         type,
         spriteImg,

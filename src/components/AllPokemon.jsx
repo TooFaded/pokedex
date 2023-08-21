@@ -10,11 +10,9 @@ function AllPokemon() {
 
   useEffect(() => {
     // Fetch all Pokémon from the API
-    axios
-      .get("/.netlify/functions/pokemonFunction/pokemon")
-      .then((response) => {
-        setPokemonList(response.data);
-      });
+    axios.get("/.netlify/functions/getPokemon/pokemon").then((response) => {
+      setPokemonList(response.data);
+    });
   }, []);
 
   const updateAllPokemonList = (newPokemon) => {
@@ -25,7 +23,7 @@ function AllPokemon() {
   };
 
   const filteredPokemonList = pokemonList.filter((pokemon) =>
-    pokemon.name.toLowerCase().includes(searchText.toLowerCase())
+    pokemon.name?.toLowerCase().includes(searchText.toLowerCase())
   );
 
   const handleDeletePokemon = (pokemonId) => {
@@ -35,7 +33,7 @@ function AllPokemon() {
 
     if (pokemonToDelete && pokemonToDelete.isCreated) {
       axios
-        .delete(`/.netlify/functions/pokemonFunction/pokemon/${pokemonId}`)
+        .delete(`/.netlify/functions/deletePokemon/pokemon/${pokemonId}`)
         .then((response) => {
           // Filter out the deleted Pokémon from the list
           setPokemonList((prevList) =>
