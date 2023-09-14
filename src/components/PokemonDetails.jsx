@@ -34,7 +34,7 @@ function PokemonDetails() {
       </Link>
 
       {pokemonDetails && (
-        <div className="bg-slate-400 flex flex-col justify-center items-center p-4 rounded-lg shadow-xl border-2 border-black">
+        <div className="bg-slate-400 flex flex-col justify-center items-center py-20 rounded-lg shadow-xl border-2 border-black">
           <h3 className=" text-2xl sm:text-5xl font-manrope bg-pokemonRed text-center mx-16 p-4 rounded-full border-2 border-black">
             {pokemonDetails.name.toUpperCase()}
           </h3>
