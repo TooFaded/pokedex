@@ -3,6 +3,9 @@ export default {
   content: ["./src/**/*.html", "./src/**/*.js", "./src/**/*.jsx"],
   theme: {
     extend: {
+      fontFamily: {
+        manrope: ["Manrope", "sans-serif"],
+      },
       colors: {
         pokemonRed: "rgb(208, 57, 2)",
       },

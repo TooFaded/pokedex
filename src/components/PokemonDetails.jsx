@@ -34,12 +34,12 @@ function PokemonDetails() {
       </Link>
 
       {pokemonDetails && (
-        <div className="bg-slate-400 p-6 rounded-lg shadow-xl border-2 border-black">
-          <h3 className="text-5xl bg-pokemonRed text-center mx-16 p-4 rounded-full border-2 border-black">
+        <div className="bg-slate-400 flex flex-col justify-center items-center p-6 rounded-lg shadow-xl border-2 border-black">
+          <h3 className=" text-2xl sm:text-5xl font-manrope bg-pokemonRed text-center mx-16 p-4 rounded-full border-2 border-black">
             {pokemonDetails.name.toUpperCase()}
           </h3>
           <img
-            className="w-[32rem]"
+            className="w-[12rem]"
             src={pokemonDetails.spriteImg}
             alt={pokemonDetails.name}
           />

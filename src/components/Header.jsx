@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <header className="bg-pokemonRed p-6">
+    <header className="bg-pokemonRed p-6 font-manrope">
       <nav className="container mx-auto flex justify-between items-center">
         <Link to="/" className="text-white flex font-bold text-xl">
           My Pokédex

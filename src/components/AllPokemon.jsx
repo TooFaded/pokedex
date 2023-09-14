@@ -47,7 +47,7 @@ function AllPokemon() {
   };
 
   return (
-    <div className="text-white p-4">
+    <div className="text-white p-4 font-manrope">
       <AddPokemon updateAllPokemonList={updateAllPokemonList} />
       <h2 className="text-center text-5xl mt-10 mb-10">All Pokémon</h2>
       <div className="flex justify-center items-center">
